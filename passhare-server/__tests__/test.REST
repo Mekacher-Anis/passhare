@@ -1,0 +1,17 @@
+GET http://localhost:3000/ HTTP/1.1
+
+###
+POST http://localhost:3000/api/save_pass HTTP/1.1
+content-type: application/json
+
+{
+  "password": "y"
+}
+
+###000
+POST http://localhost:3000/api/get_pass HTTP/1.1
+content-type: application/json
+
+{
+  "id": "0"
+}

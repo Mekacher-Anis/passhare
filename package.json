@@ -1,0 +1,16 @@
+{
+  "name": "passhare-server-and-web",
+  "version": "1.0.0",
+  "description": "passhare server and web.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "cd passhare-server && npm run serve",
+    "install:deps": "cd passhare-web && npm install && cd ../passhare-server && npm install && cd ..",
+    "build": "rimraf dist cd passhare-web && npm run build && cd passhare-server && npm run build cd .. && mkdir dist && cp -r passhare-server/dist/. dist && cp -r passhare-web/dist/. dist/public"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

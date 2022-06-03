@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+// element references
 let togglePassword;
 let passwordField;
 let submissionIdField;
@@ -15,6 +18,7 @@ let decrytedSecret;
 let lastSubmissionId;
 let decryptionError;
 let lastResponse;
+let togglePasswordIcon;
 
 window.post = function(url, data) {
   return fetch(url, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
@@ -76,7 +80,7 @@ window.getPass = async function getPass() {
   if (lastSubmissionId === id && decryptionError && !lastResponse?.error) {
     tryDecrypt(lastResponse);
   } else {
-    window.post('http://anpass.de/api/get_pass', {id})
+    window.post(`${process.env.SERVER_URL}/api/get_pass`, {id})
     .then(res => res.json())
     .then(res => {
       lastSubmissionId = id;
@@ -92,7 +96,7 @@ window.getPass = async function getPass() {
 }
 
 //https://stackoverflow.com/questions/57602686/javascript-function-wont-trigger-when-called-in-html-file-during-parcel-build
-window.send = async function send() { 
+window.sendPass = async function sendPass() { 
   let text = passwordField.value;
   if (!text?.length) return;
   sendSuccessContainer.classList.add('d-none');
@@ -104,7 +108,7 @@ window.send = async function send() {
   const ciphertext = await encrypt(text, encPassword, salt, iv);
   const encrypted = {
     ciphertext: ab2base64(ciphertext), salt: ab2base64(salt), iv: ab2base64(iv)}
-  window.post('http://anpass.de/api/save_pass', encrypted)
+  window.post(`${process.env.SERVER_URL}/api/save_pass`, encrypted)
     .then(res => res.json())
     .then(res => {
       if (!res?.error) {

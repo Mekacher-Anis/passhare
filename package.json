@@ -1,7 +1,6 @@
 {
   "name": "passhare-server-and-web",
   "version": "1.0.0",
-  "description": "passhare server and web.",
   "main": "index.js",
   "scripts": {
     "serve": "cd passhare-server && npm run serve",

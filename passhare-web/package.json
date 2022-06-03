@@ -1,6 +1,7 @@
 {
   "name": "passhare-web",
   "version": "1.0.0",
+  "description": "Secure password sharing using a passphrase (without a link)",
   "scripts": {
     "build": "parcel build index.html --no-source-maps",
     "dev": "parcel index.html --open",

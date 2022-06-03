@@ -63,6 +63,7 @@ app.post('/api/get_pass', (req, res) => {
   }
 })
 
-app.listen(APP_PORT, () => {
-  console.log(`Server listening on http://localhost:${APP_PORT}`)
+const effectivePort = process.env.PORT || APP_PORT;
+app.listen(effectivePort, () => {
+  console.log(`Server listening on http://localhost:${effectivePort}`)
 })

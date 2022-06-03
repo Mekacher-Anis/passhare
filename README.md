@@ -69,7 +69,7 @@ Everytime I have to login to an account on a device on which I don't have my pas
 All the other available solutions do the same thing: generate a very long ULR which you need to send to the other device. This acutally makes the problem worse as now you have to enter this really long and weird URL.\
 **The Solution:**\
 This Webapp encryptes the password on the device before sending it to the server using an 8-charachter-long "passphrase" (in total 218340105584896 possible combinations) which gets displayed to the user. On the other device the user simply needs to enter this short passphrase to decrypt the password.
-<a href="https://anpass.de"><h2>Checkout the demo</h2></a>
+<a target="_blank" href="https://anpass.de"><h2>Checkout the demo</h2></a>
 
 <img src="./images/main_page.png" alt="main page" width="450" height="400"/>
 <img src="./images/main_page_mobile.png" alt="main page mobile" width="200" height="400"/>

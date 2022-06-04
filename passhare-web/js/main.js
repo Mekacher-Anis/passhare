@@ -48,6 +48,20 @@ window.onload = () => {
     togglePasswordIcon.classList.toggle('fa-eye');
     togglePasswordIcon.classList.toggle('fa-eye-slash');
   });
+
+  passwordField.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      window.sendPass()
+    }
+  });
+
+  passphraseInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      window.getPass()
+    }
+  });
 }
 
 window.getPass = async function getPass() {

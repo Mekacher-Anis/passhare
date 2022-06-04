@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "concurrently \"cd passhare-server && npm run serve\" \"cd passhare-web && npm run dev\"",
     "install:deps": "cd passhare-web && npm install && cd ../passhare-server && npm install && cd ..",
-    "build": "rimraf dist && cd passhare-web && npm run build && cd ../passhare-server && npm run publish && cd .. && mkdir dist && cp -r passhare-server/build/. dist && cp -r passhare-web/dist/. dist/public"
+    "build": "rimraf dist && cd passhare-web && rimraf .parcel-cache dist && npm run build && cd ../passhare-server && npm run publish && cd .. && mkdir dist && cp -r passhare-server/build/. dist && cp -r passhare-web/dist/. dist/public"
   },
   "author": "Anis Mekacher",
   "devDependencies": {
